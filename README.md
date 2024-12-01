@@ -4,6 +4,8 @@
 ## 🌟 Introduction  
 Human stress is the body's response to challenging or demanding situations. While short-term stress can improve focus, chronic stress negatively impacts physical and mental health. This project aims to detect and classify stress levels using physiological sleep data through an **Artificial Neural Network (ANN)** model.
 
+![Project Banner](https://github.com/abhishek-sriram/Infosys-Springboard-Internship-5.0/blob/main/Images/project%20poster.png)
+
 ---
 
 ## 🚩 Problem Statement  
