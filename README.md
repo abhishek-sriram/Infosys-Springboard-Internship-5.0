@@ -58,7 +58,7 @@ The system uses the following parameters for stress detection:
 ---
 
 ## 🌐 Application Pages  
-- **Home Page:** A landing page introducing the project.  
+- **Home Page:** A landing page introducing the application.  
 - **About Page:** Details about the app and parameters.  
 - **Signup/Login Pages:** Secure user authentication.  
 - **Data Entry Page:** Interface for inputting sleep data.  
