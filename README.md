@@ -72,7 +72,7 @@ This stress detection system offers valuable insights into stress levels and the
 ---
 
 ## 👥 Team Members  
-- **Abhishek Sriram** (Team Leader)  
+- **Abhishek Sriram (Team Leader)**  
 - Jyosna  
 - Swapna  
 - Siddhi  
