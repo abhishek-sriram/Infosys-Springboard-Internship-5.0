@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <!-- CSS styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Background matches the homepage */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #f1f8e9; /* Same color as the homepage welcome container */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .password-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .password-container input {
+            padding-right: 35px;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #888;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .already-have-account {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .already-have-account a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .already-have-account a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form method="POST" action="{% url 'signup' %}" id="signupForm">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="contactnumber" placeholder="Contact Number" pattern="[0-9]{10}" required>
+
+            <!-- Password -->
+            <div class="password-container">
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <span class="eye-icon" onclick="toggleVisibility('password')">🔒</span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="password-container">
+                <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm Password" required>
+                <span class="eye-icon" onclick="toggleVisibility('confirmPassword')">🔒</span>
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="already-have-account">
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleVisibility(fieldId) {
+            const field = document.getElementById(fieldId);
+            const eyeIcon = field.nextElementSibling;
+
+            // Toggle the password field visibility
+            field.type = field.type === "password" ? "text" : "password";
+
+            // Change the eye icon between locked and unlocked
+            eyeIcon.textContent = field.type === "password" ? "🔒" : "👁️";
+        }
+
+        // Validate password on the client side
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                alert("Passwords do not match.");
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
